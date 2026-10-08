@@ -9,64 +9,24 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as SetupRouteImport } from './routes/setup'
-import { Route as ResetPasswordRouteImport } from './routes/reset-password'
-import { Route as ParentRouteImport } from './routes/parent'
-import { Route as MathsRouteImport } from './routes/maths'
-import { Route as LiteracyRouteImport } from './routes/literacy'
-import { Route as HandwritingRouteImport } from './routes/handwriting'
-import { Route as GamesRouteImport } from './routes/games'
-import { Route as DrawingRouteImport } from './routes/drawing'
-import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as DrawingRouteImport } from './routes/drawing'
+import { Route as GamesRouteImport } from './routes/games'
+import { Route as HandwritingRouteImport } from './routes/handwriting'
+import { Route as LiteracyRouteImport } from './routes/literacy'
+import { Route as MathsRouteImport } from './routes/maths'
+import { Route as ParentRouteImport } from './routes/parent'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as SetupRouteImport } from './routes/setup'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ParentIndexRouteImport } from './routes/parent.index'
-import { Route as ParentGalleryRouteImport } from './routes/parent.gallery'
 import { Route as ParentBadgesRouteImport } from './routes/parent.badges'
+import { Route as ParentGalleryRouteImport } from './routes/parent.gallery'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SetupRoute = SetupRouteImport.update({
-  id: '/setup',
-  path: '/setup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResetPasswordRoute = ResetPasswordRouteImport.update({
-  id: '/reset-password',
-  path: '/reset-password',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ParentRoute = ParentRouteImport.update({
-  id: '/parent',
-  path: '/parent',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MathsRoute = MathsRouteImport.update({
-  id: '/maths',
-  path: '/maths',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LiteracyRoute = LiteracyRouteImport.update({
-  id: '/literacy',
-  path: '/literacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HandwritingRoute = HandwritingRouteImport.update({
-  id: '/handwriting',
-  path: '/handwriting',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GamesRoute = GamesRouteImport.update({
-  id: '/games',
-  path: '/games',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DrawingRoute = DrawingRouteImport.update({
-  id: '/drawing',
-  path: '/drawing',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -74,9 +34,49 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const DrawingRoute = DrawingRouteImport.update({
+  id: '/drawing',
+  path: '/drawing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesRoute = GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HandwritingRoute = HandwritingRouteImport.update({
+  id: '/handwriting',
+  path: '/handwriting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiteracyRoute = LiteracyRouteImport.update({
+  id: '/literacy',
+  path: '/literacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MathsRoute = MathsRouteImport.update({
+  id: '/maths',
+  path: '/maths',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentRoute = ParentRouteImport.update({
+  id: '/parent',
+  path: '/parent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SetupRoute = SetupRouteImport.update({
+  id: '/setup',
+  path: '/setup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ParentIndexRoute = ParentIndexRouteImport.update({
@@ -84,14 +84,14 @@ const ParentIndexRoute = ParentIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ParentRoute,
 } as any)
-const ParentGalleryRoute = ParentGalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
-  getParentRoute: () => ParentRoute,
-} as any)
 const ParentBadgesRoute = ParentBadgesRouteImport.update({
   id: '/badges',
   path: '/badges',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentGalleryRoute = ParentGalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => ParentRoute,
 } as any)
 
@@ -209,67 +209,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/setup': {
-      id: '/setup'
-      path: '/setup'
-      fullPath: '/setup'
-      preLoaderRoute: typeof SetupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reset-password': {
-      id: '/reset-password'
-      path: '/reset-password'
-      fullPath: '/reset-password'
-      preLoaderRoute: typeof ResetPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/parent': {
-      id: '/parent'
-      path: '/parent'
-      fullPath: '/parent'
-      preLoaderRoute: typeof ParentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/maths': {
-      id: '/maths'
-      path: '/maths'
-      fullPath: '/maths'
-      preLoaderRoute: typeof MathsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/literacy': {
-      id: '/literacy'
-      path: '/literacy'
-      fullPath: '/literacy'
-      preLoaderRoute: typeof LiteracyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/handwriting': {
-      id: '/handwriting'
-      path: '/handwriting'
-      fullPath: '/handwriting'
-      preLoaderRoute: typeof HandwritingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/games': {
-      id: '/games'
-      path: '/games'
-      fullPath: '/games'
-      preLoaderRoute: typeof GamesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/drawing': {
-      id: '/drawing'
-      path: '/drawing'
-      fullPath: '/drawing'
-      preLoaderRoute: typeof DrawingRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -279,11 +223,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/drawing': {
+      id: '/drawing'
+      path: '/drawing'
+      fullPath: '/drawing'
+      preLoaderRoute: typeof DrawingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games': {
+      id: '/games'
+      path: '/games'
+      fullPath: '/games'
+      preLoaderRoute: typeof GamesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/handwriting': {
+      id: '/handwriting'
+      path: '/handwriting'
+      fullPath: '/handwriting'
+      preLoaderRoute: typeof HandwritingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/literacy': {
+      id: '/literacy'
+      path: '/literacy'
+      fullPath: '/literacy'
+      preLoaderRoute: typeof LiteracyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maths': {
+      id: '/maths'
+      path: '/maths'
+      fullPath: '/maths'
+      preLoaderRoute: typeof MathsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent': {
+      id: '/parent'
+      path: '/parent'
+      fullPath: '/parent'
+      preLoaderRoute: typeof ParentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/setup': {
+      id: '/setup'
+      path: '/setup'
+      fullPath: '/setup'
+      preLoaderRoute: typeof SetupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/parent/': {
@@ -293,18 +293,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ParentIndexRouteImport
       parentRoute: typeof ParentRoute
     }
-    '/parent/gallery': {
-      id: '/parent/gallery'
-      path: '/gallery'
-      fullPath: '/parent/gallery'
-      preLoaderRoute: typeof ParentGalleryRouteImport
-      parentRoute: typeof ParentRoute
-    }
     '/parent/badges': {
       id: '/parent/badges'
       path: '/badges'
       fullPath: '/parent/badges'
       preLoaderRoute: typeof ParentBadgesRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/gallery': {
+      id: '/parent/gallery'
+      path: '/gallery'
+      fullPath: '/parent/gallery'
+      preLoaderRoute: typeof ParentGalleryRouteImport
       parentRoute: typeof ParentRoute
     }
   }
