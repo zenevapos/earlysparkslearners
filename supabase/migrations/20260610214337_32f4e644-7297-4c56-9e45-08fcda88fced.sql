@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.create_gamification_for_child() FROM PUBLIC, anon, authenticated;
